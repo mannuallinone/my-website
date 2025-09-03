@@ -2,106 +2,271 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mahadev Photography</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>
-  <script src="firebase.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+      line-height: 1.6;
+      background: #f9f9f9;
+    }
+    header {
+      background: url('images/hero.jpg') no-repeat center center/cover;
+      height: 70vh;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+    }
+    header h1 { font-size: 3rem; margin: 0; }
+    header p { font-size: 1.2rem; }
+
+    section { padding: 40px 20px; max-width: 1000px; margin: auto; }
+
+    h2 { text-align: center; margin-bottom: 20px; }
+
+    .services, .packages {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      width: 280px;
+      text-align: center;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .gallery img:hover { transform: scale(1.05); }
+
+    /* Fullscreen image */
+    #lightbox {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
+    }
+    #lightbox img {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 10px;
+    }
+
+    /* Booking Form */
+    #bookingForm {
+      max-width: 500px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+    input, select, textarea, button {
+      padding: 10px;
+      font-size: 16px;
+      width: 100%;
+    }
+    .date-block { display: flex; gap: 10px; }
+    button { cursor: pointer; background: #3399cc; color: white; border: none; border-radius: 5px; }
+  </style>
 </head>
 <body>
+
+  <!-- Hero Section -->
   <header>
-    <h1>📸 Mahadev Photography</h1>
-    <p>Wedding • Fashion • Events</p>
+    <h1>Mahadev Photography</h1>
+    <p>Cinematic & Traditional Wedding Photography</p>
   </header>
 
-  <!-- Services -->
-  <section id="services">
+  <!-- Services Section -->
+  <section>
     <h2>Our Services</h2>
-    <ul>
-      <li>Wedding Photography</li>
-      <li>Fashion Photography</li>
-      <li>Event Photography</li>
-    </ul>
+    <div class="services">
+      <div class="card">
+        <h3>Wedding Photography</h3>
+        <p>Cinematic + Traditional captures of your big day.</p>
+      </div>
+      <div class="card">
+        <h3>Fashion Photography</h3>
+        <p>Stylish and professional fashion shoots.</p>
+      </div>
+      <div class="card">
+        <h3>Event Photography</h3>
+        <p>Covering birthdays, parties, and special occasions.</p>
+      </div>
+    </div>
   </section>
 
-  <!-- Gallery -->
-  <section id="gallery">
+  <!-- Gallery Section -->
+  <section>
     <h2>Gallery</h2>
-    <img src="images/wedding1.jpg" alt="Wedding" width="200">
-    <img src="images/fashion1.jpg" alt="Fashion" width="200">
-    <img src="images/event1.jpg" alt="Event" width="200">
+    <div class="gallery">
+      <img src="images/photo1.jpg" alt="Gallery Image">
+      <img src="images/photo2.jpg" alt="Gallery Image">
+      <img src="images/photo3.jpg" alt="Gallery Image">
+      <img src="images/photo4.jpg" alt="Gallery Image">
+    </div>
   </section>
 
-  <!-- Packages -->
-  <section id="packages">
+  <!-- Lightbox -->
+  <div id="lightbox" onclick="this.style.display='none'">
+    <img id="lightboxImg" src="">
+  </div>
+
+  <!-- Packages Section -->
+  <section>
     <h2>Packages</h2>
-    <ul>
-      <li>Traditional Photo + Video – ₹10,000</li>
-      <li>Drone + Traditional – ₹15,000</li>
-      <li>Cinematic Style – ₹20,000</li>
-    </ul>
+    <div class="packages">
+      <div class="card">
+        <h3>Traditional Photo + Video</h3>
+        <p>₹10,000</p>
+      </div>
+      <div class="card">
+        <h3>Traditional + Drone</h3>
+        <p>₹15,000</p>
+      </div>
+      <div class="card">
+        <h3>Cinematic Package</h3>
+        <p>₹10,000</p>
+      </div>
+    </div>
   </section>
 
-  <!-- Equipment -->
-  <section id="equipment">
-    <h2>Camera Equipment</h2>
-    <select id="equipmentSelect">
-      <option value="">-- Select Equipment --</option>
-      <option value="DSLR Camera - ₹5,000">DSLR Camera - ₹5,000</option>
-      <option value="Drone Camera - ₹8,000">Drone Camera - ₹8,000</option>
-      <option value="4K Cinematic Camera - ₹12,000">4K Cinematic Camera - ₹12,000</option>
-    </select>
-  </section>
-
-  <!-- Booking Form -->
-  <section id="booking">
+  <!-- Booking Section -->
+  <section>
     <h2>Book Now</h2>
     <form id="bookingForm">
-      <input type="text" id="name" placeholder="Your Name" required><br>
-      <input type="email" id="email" placeholder="Your Email" required><br>
-      <input type="text" id="address" placeholder="Address" required><br>
-      <input type="date" id="date" required><br>
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Your Email" required>
 
-      <select id="functionType" required>
-        <option value="">-- Select Function --</option>
-        <option value="Wedding">Wedding</option>
-        <option value="Ganesh Puja">Ganesh Puja</option>
-        <option value="Event">Event</option>
-      </select><br>
+      <!-- Dates + Functions -->
+      <div id="dateContainer">
+        <div class="date-block">
+          <input type="date" name="eventDate[]" required>
+          <select name="eventFunction[]" required>
+            <option value="">-- Select Function --</option>
+            <option value="Haldi">Haldi</option>
+            <option value="Mehendi">Mehendi</option>
+            <option value="Ganesh Puja">Ganesh Puja</option>
+            <option value="Wedding">Wedding</option>
+            <option value="Reception">Reception</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+      </div>
+      <button type="button" onclick="addDateField()">+ Add More Date</button>
 
+      <!-- Address -->
+      <textarea id="address" placeholder="Event Address" required></textarea>
+
+      <!-- Package -->
       <select id="package" required>
         <option value="">-- Select Package --</option>
-        <option value="Traditional - 10000">Traditional - ₹10,000</option>
-        <option value="Drone + Traditional - 15000">Drone + Traditional - ₹15,000</option>
-        <option value="Cinematic - 20000">Cinematic - ₹20,000</option>
-      </select><br>
+        <option value="10000">Traditional Photo + Video (₹10,000)</option>
+        <option value="15000">Traditional + Drone (₹15,000)</option>
+        <option value="10000">Cinematic Package (₹10,000)</option>
+      </select>
 
-      <button type="submit">Book Now</button>
+      <button type="submit">Pay Advance</button>
     </form>
   </section>
 
+  <!-- Razorpay -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
   <script>
-    const form = document.getElementById("bookingForm");
-    form.addEventListener("submit", function(e) {
+    // Lightbox
+    const galleryImages = document.querySelectorAll('.gallery img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    galleryImages.forEach(img => {
+      img.addEventListener('click', () => {
+        lightbox.style.display = 'flex';
+        lightboxImg.src = img.src;
+      });
+    });
+
+    // Add more dates
+    function addDateField() {
+      let container = document.getElementById("dateContainer");
+      let div = document.createElement("div");
+      div.className = "date-block";
+
+      let input = document.createElement("input");
+      input.type = "date";
+      input.name = "eventDate[]";
+      input.required = true;
+
+      let select = document.createElement("select");
+      select.name = "eventFunction[]";
+      select.required = true;
+      select.innerHTML = `
+        <option value="">-- Select Function --</option>
+        <option value="Haldi">Haldi</option>
+        <option value="Mehendi">Mehendi</option>
+        <option value="Ganesh Puja">Ganesh Puja</option>
+        <option value="Wedding">Wedding</option>
+        <option value="Reception">Reception</option>
+        <option value="Other">Other</option>
+      `;
+
+      div.appendChild(input);
+      div.appendChild(select);
+      container.appendChild(div);
+    }
+
+    // Razorpay Payment
+    document.getElementById("bookingForm").onsubmit = function(e) {
       e.preventDefault();
 
-      const bookingData = {
-        name: document.getElementById("name").value,
-        email: document.getElementById("email").value,
-        address: document.getElementById("address").value,
-        date: document.getElementById("date").value,
-        functionType: document.getElementById("functionType").value,
-        package: document.getElementById("package").value,
-        equipment: document.getElementById("equipmentSelect").value,
+      let packageAmount = document.getElementById("package").value;
+      if (!packageAmount) {
+        alert("Please select a package");
+        return;
+      }
+
+      let options = {
+        "key": "YOUR_RAZORPAY_KEY", // apna Razorpay key id yaha daalein
+        "amount": packageAmount * 100,
+        "currency": "INR",
+        "name": "Mahadev Photography",
+        "description": "Advance Booking Payment",
+        "handler": function (response){
+            alert("Payment successful! Payment ID: " + response.razorpay_payment_id);
+        },
+        "prefill": {
+            "name": document.getElementById("name").value,
+            "email": document.getElementById("email").value
+        },
+        "theme": { "color": "#3399cc" }
       };
 
-      // Save to Firebase
-      const db = firebase.database();
-      db.ref("bookings").push(bookingData);
-
-      alert("✅ Booking submitted successfully!");
-      form.reset();
-    });
+      let rzp1 = new Razorpay(options);
+      rzp1.open();
+    }
   </script>
+
 </body>
 </html>
