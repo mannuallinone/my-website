@@ -5,153 +5,150 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mahadev Photography</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-    }
-    header {
-      background: #111;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-    }
-    h1 {
-      margin: 0;
-    }
-    section {
-      padding: 40px 20px;
-    }
-    .service {
-      text-align: center;
-      margin-bottom: 50px;
-    }
-    .service h2 {
-      margin-bottom: 10px;
-    }
-    .service img {
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    header { background: #222; color: white; text-align: center; padding: 20px; }
+    h1 { margin: 0; }
+    section { padding: 30px; text-align: center; }
+    h2 { margin-bottom: 20px; }
+
+    /* Gallery */
+    .gallery img {
       width: 200px;
-      height: auto;
       margin: 10px;
-      display: inline-block;
       border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      cursor: pointer;
+      transition: 0.3s;
     }
-    .form-container {
-      max-width: 400px;
-      margin: 0 auto;
-      text-align: center;
+    .gallery img:hover { transform: scale(1.1); }
+
+    /* Packages */
+    .packages { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+    .package {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      width: 250px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-    input, button {
-      width: 90%;
+    .package h3 { margin-top: 0; }
+
+    /* Booking */
+    form input, form button {
       padding: 10px;
-      margin: 10px 0;
+      margin: 10px;
+      width: 80%;
+      max-width: 400px;
     }
     button {
-      background: #111;
-      color: #fff;
+      background: #007bff;
       border: none;
+      color: white;
+      border-radius: 5px;
       cursor: pointer;
     }
-    button:hover {
-      background: #444;
-    }
+    button:hover { background: #0056b3; }
+
     footer {
-      background: #111;
-      color: #fff;
+      background: #222;
+      color: white;
       text-align: center;
-      padding: 20px;
+      padding: 15px;
+      margin-top: 30px;
     }
   </style>
 </head>
 <body>
-
   <header>
     <h1>Mahadev Photography</h1>
-    <p>Capturing your beautiful moments</p>
+    <p>Cinematic & Traditional Wedding Memories</p>
   </header>
 
-  <!-- Services Section -->
-  <section>
-    <h2 style="text-align:center;">Our Services</h2>
+  <!-- Gallery Section -->
+  <section id="photo-gallery"></section>
 
-    <div class="service">
-      <h2>Wedding Photography</h2>
-      <p>Beautiful wedding memories captured forever.</p>
-      <img src="images/wedding1.JPG" alt="Wedding Photo 1">
-      <img src="images/wedding2.jpg" alt="Wedding Photo 2">
-      <img src="images/wedding3.jpg" alt="Wedding Photo 3">
-    </div>
+  <!-- Equipment Section -->
+  <section id="equipment-section"></section>
 
-    <div class="service">
-      <h2>Fashion Photography</h2>
-      <p>Stylish and creative fashion shoots.</p>
-      <img src="images/fashion1.jpg" alt="Fashion Photo 1">
-      <img src="images/fashion2.jpg" alt="Fashion Photo 2">
-    </div>
-
-    <div class="service">
-      <h2>Event Photography</h2>
-      <p>Professional coverage for all types of events.</p>
-      <img src="images/event1.jpg" alt="Event Photo 1">
-      <img src="images/event2.jpg" alt="Event Photo 2">
-    </div>
-  </section>
-
-  <!-- Equipment Packages Section -->
-  <section>
-    <h2 style="text-align:center;">Our Packages</h2>
-    <div class="service">
-      <p><b>Traditional Video + Photo</b> - ₹10,000</p>
-      <p><b>Traditional Video + Photo + Drone</b> - ₹15,000</p>
-      <p><b>Cinematic Package</b> - ₹10,000</p>
-    </div>
-  </section>
-
-  <!-- Booking Form -->
-  <section>
-    <h2 style="text-align:center;">Book Your Shoot</h2>
-    <div class="form-container">
-      <form>
-        <input type="text" placeholder="Name" required><br>
-        <input type="email" placeholder="Email" required><br>
-        <input type="text" placeholder="Phone" required><br>
-        <button type="submit">Submit Booking</button>
-      </form>
-
-      <!-- Razorpay Payment Button -->
-      <p>Advance Payment:</p>
-      <button id="rzp-button1">Pay with Razorpay</button>
-    </div>
-  </section>
+  <!-- Booking Section -->
+  <section id="booking-section"></section>
 
   <footer>
-    <p>© 2025 Mahadev Photography | All Rights Reserved</p>
+    <p>© 2025 Mahadev Photography. All rights reserved.</p>
   </footer>
 
   <!-- Razorpay Script -->
   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-  <script>
-    var options = {
-      "key": "rzp_test_xxxxxxxx", // yaha apna Razorpay Key ID dalna hai
-      "amount": "50000", // 50000 paise = ₹500 (advance booking)
-      "currency": "INR",
-      "name": "Mahadev Photography",
-      "description": "Advance Booking Payment",
-      "handler": function (response){
-          alert("Payment successful! Payment ID: " + response.razorpay_payment_id);
-      },
-      "theme": {
-          "color": "#111"
-      }
-    };
-    var rzp1 = new Razorpay(options);
-    document.getElementById('rzp-button1').onclick = function(e){
-      rzp1.open();
-      e.preventDefault();
-    }
-  </script>
 
+  <script>
+    // GALLERY
+    document.getElementById("photo-gallery").innerHTML = `
+      <h2>Our Work</h2>
+      <div class="gallery">
+        <a href="images/wedding1.jpg" target="_blank">
+          <img src="images/wedding1.jpg" alt="Wedding 1">
+        </a>
+        <a href="images/wedding2.jpg" target="_blank">
+          <img src="images/wedding2.jpg" alt="Wedding 2">
+        </a>
+        <a href="images/wedding3.jpg" target="_blank">
+          <img src="images/wedding3.jpg" alt="Wedding 3">
+        </a>
+      </div>
+    `;
+
+    // EQUIPMENT PACKAGES
+    document.getElementById("equipment-section").innerHTML = `
+      <h2>Packages</h2>
+      <div class="packages">
+        <div class="package">
+          <h3>Traditional Photo + Video</h3>
+          <p>₹10,000</p>
+        </div>
+        <div class="package">
+          <h3>Traditional + Drone</h3>
+          <p>₹15,000</p>
+        </div>
+        <div class="package">
+          <h3>Cinematic Package</h3>
+          <p>₹10,000</p>
+        </div>
+      </div>
+    `;
+
+    // BOOKING FORM
+    document.getElementById("booking-section").innerHTML = `
+      <h2>Book Now</h2>
+      <form id="bookingForm">
+        <input type="text" id="name" placeholder="Your Name" required><br>
+        <input type="email" id="email" placeholder="Your Email" required><br>
+        <input type="text" id="package" placeholder="Selected Package" required><br>
+        <button type="submit">Pay Advance</button>
+      </form>
+    `;
+
+    // RAZORPAY PAYMENT
+    document.getElementById("bookingForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      var options = {
+        "key": "YOUR_RAZORPAY_KEY", // ← apna Razorpay key yaha daalna
+        "amount": 2000 * 100, // example: ₹2000 advance
+        "currency": "INR",
+        "name": "Mahadev Photography",
+        "description": "Advance Booking Payment",
+        "handler": function (response){
+          alert("Payment successful! Payment ID: " + response.razorpay_payment_id);
+        },
+        "prefill": {
+          "name": document.getElementById("name").value,
+          "email": document.getElementById("email").value
+        },
+        "theme": { "color": "#007bff" }
+      };
+
+      var rzp1 = new Razorpay(options);
+      rzp1.open();
+    });
+  </script>
 </body>
 </html>
