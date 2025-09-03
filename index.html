@@ -112,3 +112,120 @@
   </footer>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mahadev Photography</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; }
+    header {
+      background: url('https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e') no-repeat center/cover;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+    }
+    header h1 { font-size: 3em; margin: 0; }
+    header p { font-size: 1.5em; }
+    section { padding: 50px 20px; text-align: center; }
+    .services { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+    .service {
+      background: #f4f4f4;
+      padding: 20px;
+      border-radius: 10px;
+      width: 280px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .service h3 { margin-top: 0; }
+    form {
+      max-width: 500px;
+      margin: auto;
+      text-align: left;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    button {
+      padding: 12px 20px;
+      background: #000;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    footer {
+      background: #222;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <header>
+    <h1>Mahadev Photography</h1>
+    <p>Capturing Moments, Creating Memories</p>
+  </header>
+
+  <!-- Services -->
+  <section>
+    <h2>Our Services</h2>
+    <div class="services">
+      <div class="service">
+        <h3>Wedding Photography</h3>
+        <p>Beautiful wedding memories captured forever.</p>
+      </div>
+      <div class="service">
+        <h3>Fashion Photography</h3>
+        <p>Stylish and creative fashion shoots.</p>
+      </div>
+      <div class="service">
+        <h3>Event Photography</h3>
+        <p>Professional coverage for all types of events.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking Form -->
+  <section id="booking" style="background:#f9f9f9;">
+    <h2>Book Your Shoot</h2>
+    <p>Fill the form below to book <b>Mahadev Photography</b> for your special day.</p>
+    <form action="https://formspree.io/f/mandpgdo" method="POST">
+      <label>Name:</label>
+      <input type="text" name="name" required>
+
+      <label>Email:</label>
+      <input type="email" name="email" required>
+
+      <label>Phone:</label>
+      <input type="text" name="phone" required>
+
+      <label>Event Date:</label>
+      <input type="date" name="date" required>
+
+      <label>Message:</label>
+      <textarea name="message" rows="4"></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Mahadev Photography | All Rights Reserved</p>
+  </footer>
+
+</body>
+</html>
