@@ -5,159 +5,153 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mahadev Photography</title>
   <style>
-    body { margin: 0; font-family: Arial, sans-serif; }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
     header {
-      background: url('https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e') no-repeat center/cover;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
-    }
-    header h1 { font-size: 3em; margin: 0; }
-    header p { font-size: 1.5em; }
-    section { padding: 50px 20px; text-align: center; }
-    .services { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-    .service {
-      background: #f4f4f4;
+      background: #111;
+      color: #fff;
       padding: 20px;
-      border-radius: 10px;
-      width: 280px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
-    .service h3 { margin-top: 0; }
-    form {
-      max-width: 500px;
-      margin: auto;
-      text-align: left;
-    }
-    input, textarea {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-    }
-    button {
-      padding: 12px 20px;
-      background: #000;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    footer {
-      background: #222;
-      color: #fff;
       text-align: center;
-      padding: 20px;
-      margin-top: 40px;
     }
-<head>
-  <style>
+    h1 {
+      margin: 0;
+    }
+    section {
+      padding: 40px 20px;
+    }
     .service {
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 50px;
     }
-
+    .service h2 {
+      margin-bottom: 10px;
+    }
     .service img {
       width: 200px;
       height: auto;
       margin: 10px;
       display: inline-block;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    .form-container {
+      max-width: 400px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    input, button {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+    }
+    button {
+      background: #111;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #444;
+    }
+    footer {
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
     }
   </style>
 </head>
+<body>
 
-  <!-- Hero Section -->
   <header>
     <h1>Mahadev Photography</h1>
-    <p>Capturing Moments, Creating Memories</p>
+    <p>Capturing your beautiful moments</p>
   </header>
 
-<h2>Our Services</h2>
+  <!-- Services Section -->
+  <section>
+    <h2 style="text-align:center;">Our Services</h2>
 
-<!-- Wedding Photography -->
-<div class="service">
-  <h3>Wedding Photography</h3>
-  <p>Beautiful wedding memories captured forever.</p>
-  
-  <div class="gallery">
-    <img src="wedding1.jpg" alt="Wedding Photo 1" width="200">
-    <img src="wedding2.jpg" alt="Wedding Photo 2" width="200">
-    <img src="wedding3.jpg" alt="Wedding Photo 3" width="200">
-  </div>
-</div>
+    <div class="service">
+      <h2>Wedding Photography</h2>
+      <p>Beautiful wedding memories captured forever.</p>
+      <img src="images/wedding1.jpg" alt="Wedding Photo 1">
+      <img src="images/wedding2.jpg" alt="Wedding Photo 2">
+      <img src="images/wedding3.jpg" alt="Wedding Photo 3">
+    </div>
 
-<!-- Fashion Photography -->
-<div class="service">
-  <h3>Fashion Photography</h3>
-  <p>Stylish and creative fashion shoots.</p>
-  
-  <div class="gallery">
-    <img src="fashion1.jpg" alt="Fashion Photo 1" width="200">
-    <img src="fashion2.jpg" alt="Fashion Photo 2" width="200">
-  </div>
-</div>
+    <div class="service">
+      <h2>Fashion Photography</h2>
+      <p>Stylish and creative fashion shoots.</p>
+      <img src="images/fashion1.jpg" alt="Fashion Photo 1">
+      <img src="images/fashion2.jpg" alt="Fashion Photo 2">
+    </div>
 
-<!-- Event Photography -->
-<div class="service">
-  <h3>Event Photography</h3>
-  <p>Professional coverage for all types of events.</p>
-  
-  <div class="gallery">
-    <img src="event1.jpg" alt="Event Photo 1" width="200">
-    <img src="event2.jpg" alt="Event Photo 2" width="200">
-  </div>
-</div>
-
-<!-- CSS for gallery -->
-<style>
-  .gallery {
-    display: flex;
-    gap: 10px;
-    margin-top: 10px;
-  }
-  .gallery img {
-    border-radius: 10px;
-  }
-  .service {
-    margin-bottom: 40px;
-  }
-</style>
-
-  <!-- Booking Form -->
-  <section id="booking" style="background:#f9f9f9;">
-    <h2>Book Your Shoot</h2>
-    <p>Fill the form below to book <b>Mahadev Photography</b> for your special day.</p>
-    <form action="https://formspree.io/f/mandpgdo" method="POST">
-      <label>Name:</label>
-      <input type="text" name="name" required>
-
-      <label>Email:</label>
-      <input type="email" name="email" required>
-
-      <label>Phone:</label>
-      <input type="text" name="phone" required>
-
-      <label>function Date:</label>
-      <input type="date" name="date" required>
-      <label>function end Date:</label>
-      <input type="date" name="date" required>
-
-      <label>Message:</label>
-      <textarea name="message" rows="4"></textarea>
-
-      <button type="submit">Submit</button>
-    </form>
+    <div class="service">
+      <h2>Event Photography</h2>
+      <p>Professional coverage for all types of events.</p>
+      <img src="images/event1.jpg" alt="Event Photo 1">
+      <img src="images/event2.jpg" alt="Event Photo 2">
+    </div>
   </section>
 
-  <!-- Footer -->
+  <!-- Equipment Packages Section -->
+  <section>
+    <h2 style="text-align:center;">Our Packages</h2>
+    <div class="service">
+      <p><b>Traditional Video + Photo</b> - ₹10,000</p>
+      <p><b>Traditional Video + Photo + Drone</b> - ₹15,000</p>
+      <p><b>Cinematic Package</b> - ₹10,000</p>
+    </div>
+  </section>
+
+  <!-- Booking Form -->
+  <section>
+    <h2 style="text-align:center;">Book Your Shoot</h2>
+    <div class="form-container">
+      <form>
+        <input type="text" placeholder="Name" required><br>
+        <input type="email" placeholder="Email" required><br>
+        <input type="text" placeholder="Phone" required><br>
+        <button type="submit">Submit Booking</button>
+      </form>
+
+      <!-- Razorpay Payment Button -->
+      <p>Advance Payment:</p>
+      <button id="rzp-button1">Pay with Razorpay</button>
+    </div>
+  </section>
+
   <footer>
     <p>© 2025 Mahadev Photography | All Rights Reserved</p>
   </footer>
+
+  <!-- Razorpay Script -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script>
+    var options = {
+      "key": "rzp_test_xxxxxxxx", // yaha apna Razorpay Key ID dalna hai
+      "amount": "50000", // 50000 paise = ₹500 (advance booking)
+      "currency": "INR",
+      "name": "Mahadev Photography",
+      "description": "Advance Booking Payment",
+      "handler": function (response){
+          alert("Payment successful! Payment ID: " + response.razorpay_payment_id);
+      },
+      "theme": {
+          "color": "#111"
+      }
+    };
+    var rzp1 = new Razorpay(options);
+    document.getElementById('rzp-button1').onclick = function(e){
+      rzp1.open();
+      e.preventDefault();
+    }
+  </script>
 
 </body>
 </html>
