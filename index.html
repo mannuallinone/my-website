@@ -43,10 +43,10 @@
 <section>
   <h2>Gallery</h2>
   <div class="gallery">
-    <img src="images/wedding1.JPG" alt="Gallery Image">
-    <img src="images/wedding2.JPG" alt="Gallery Image">
-    <img src="images/wedding3.JPG" alt="Gallery Image">
-    <img src="images/wedding4.JPG" alt="Gallery Image">
+    <img src="images/wedding1.JPG" alt="Gallery Image" onerror="this.src='https://via.placeholder.com/400x300?text=Photo';">
+    <img src="images/wedding2.JPG" alt="Gallery Image" onerror="this.src='https://via.placeholder.com/400x300?text=Photo';">
+    <img src="images/wedding3.JPG" alt="Gallery Image" onerror="this.src='https://via.placeholder.com/400x300?text=Photo';">
+    <img src="images/wedding4.JPG" alt="Gallery Image" onerror="this.src='https://via.placeholder.com/400x300?text=Photo';">
   </div>
 </section>
 
@@ -68,7 +68,7 @@
   <form id="bookingForm">
     <input type="text" id="name" placeholder="Your Name" required>
     <input type="email" id="email" placeholder="Your Email" required>
-    <input type="phone" id="phone" placeholder="Your Phone" required>
+    <input type="tel" id="phone" placeholder="Your Phone" required>
 
     <div id="dateContainer">
       <div class="date-block">
@@ -157,11 +157,11 @@
     let payAmount = (packageAmount * advancePercent)/100;
 
     var options = {
-      "key": "rzp_test_RDSihk31OASzEF", // yaha apna Razorpay key id
+      "key": "rzp_test_RDSihk31OASzEF", // apna Razorpay key id yaha lagana
       "amount": payAmount*100,
       "currency": "INR",
       "name": "Mahadev Photography",
-      "description": Advance Payment (${advancePercent}%),
+      "description": `Advance Payment (${advancePercent}%)`,
       "handler": function(response){
         alert("Payment successful! Payment ID: " + response.razorpay_payment_id);
       },
