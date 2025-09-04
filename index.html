@@ -5,23 +5,92 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mahadev Photography</title>
   <style>
-    body { font-family: Arial, sans-serif; margin:0; padding:0; line-height:1.6; background:#426EA6; }
-    header { background:url('images/hero.jpg') no-repeat center/cover; height:70vh; color:white; display:flex; align-items:center; justify-content:center; flex-direction:column; text-align:center; }
-    header h1 { font-size:3rem; margin:0; }
-    header p { font-size:1.2rem; }
-    section { padding:40px 20px; max-width:1000px; margin:auto; }
-    h2 { text-align:center; margin-bottom:20px; }
-    .services, .packages { display:flex; gap:20px; justify-content:center; flex-wrap:wrap; }
-    .card { background:white; padding:20px; border-radius:10px; box-shadow:0 2px 6px rgba(0,0,0,0.2); width:280px; text-align:center; }
-    .gallery { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:15px; }
-    .gallery img { width:100%; border-radius:10px; cursor:pointer; transition:0.3s; }
-    .gallery img:hover { transform:scale(1.05); }
-    #lightbox { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); justify-content:center; align-items:center; }
-    #lightbox img { max-width:90%; max-height:80%; border-radius:10px; }
-    #bookingForm { max-width:500px; margin:auto; display:flex; flex-direction:column; gap:15px; background:white; padding:20px; border-radius:10px; box-shadow:0 2px 6px rgba(0,0,0,0.2); }
-    input, select, textarea, button { padding:10px; font-size:16px; width:100%; }
-    .date-block { display:flex; gap:10px; }
-    button { cursor:pointer; background:#3399cc; color:white; border:none; border-radius:5px; }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+      line-height: 1.6;
+      background: #f9f9f9;
+    }
+    header {
+      background: url('images/hero.jpg') no-repeat center center/cover;
+      height: 70vh;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+    }
+    header h1 { font-size: 3rem; margin: 0; }
+    header p { font-size: 1.2rem; }
+
+    section { padding: 40px 20px; max-width: 1000px; margin: auto; }
+
+    h2 { text-align: center; margin-bottom: 20px; }
+
+    .services, .packages {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      width: 280px;
+      text-align: center;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .gallery img:hover { transform: scale(1.05); }
+
+    /* Fullscreen image */
+    #lightbox {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
+    }
+    #lightbox img {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 10px;
+    }
+
+    /* Booking Form */
+    #bookingForm {
+      max-width: 500px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+    input, select, textarea, button {
+      padding: 10px;
+      font-size: 16px;
+      width: 100%;
+    }
+    .date-block { display: flex; gap: 10px; }
+    button { cursor: pointer; background: #3399cc; color: white; border: none; border-radius: 5px; }
   </style>
 </head>
 <body>
