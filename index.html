@@ -462,50 +462,45 @@
 </html>
 
 
-<!--export default function Terms() {
-  return (-->
-    <div className="p-8 max-w-3xl mx-auto">
-      <h1 className="text-3xl font-bold mb-4">Terms and Conditions</h1>
-      <p>Welcome to our website. By booking our photography services, you agree to the following terms:</p>
+import React from "react";
+import "./PolicySection.css";
 
-      <ul className="list-disc pl-6 mt-4 space-y-2">
-        <li>All bookings are subject to availability.</li>
-        <li>Payment must be made in advance to confirm the booking.</li>
-        <li>Customers are responsible for providing accurate information.</li>
-        <li>Misuse of the website or fraudulent payments will result in cancellation.</li>
-        <li>We reserve the right to update these terms at any time.</li>
-      </ul>
-    </div>
-  
-<!--export default function Refund() {
-  return (-->
-    <div className="p-8 max-w-3xl mx-auto">
-      <h1 className="text-3xl font-bold mb-4">Cancellations and Refunds Policy</h1>
-      <p>We understand plans can change. Please review our policy below:</p>
+const PolicySection = () => {
+  return (
+    <div className="policy-container">
+      <div className="policy-card">
+        <h2>Terms and Conditions</h2>
+        <ul>
+          <li>All bookings are subject to availability</li>
+          <li>Payment must be made in advance to confirm the booking</li>
+          <li>Customers are responsible for providing accurate information</li>
+          <li>Misuse or fraudulent payments will result in cancellation</li>
+          <li>We reserve the right to update these terms at any time</li>
+        </ul>
+      </div>
 
-      <ul className="list-disc pl-6 mt-4 space-y-2">
-        <li>Cancellations made 7 days before the event are eligible for a full refund.</li>
-        <li>Cancellations made within 3–6 days of the event will receive a 50% refund.</li>
-        <li>No refunds for cancellations within 48 hours of the event.</li>
-        <li>If we cancel the booking, a full refund will be issued.</li>
-        <li>Refunds will be processed within 7–10 business days.</li>
-      </ul>
-    </div>
-  );
-}
-<!--export default function Privacy() {
-  return (-->
-    <div className="p-8 max-w-3xl mx-auto">
-      <h1 className="text-3xl font-bold mb-4">Privacy Policy</h1>
-      <p>Your privacy is important to us. This policy explains how we handle your data:</p>
+      <div className="policy-card">
+        <h2>Cancellations and Refunds Policy</h2>
+        <ul>
+          <li>Cancellations made 7 days before the event = Full refund</li>
+          <li>3–6 days before event = 50% refund</li>
+          <li>No refunds within 48 hours of event</li>
+          <li>If we cancel, full refund will be issued</li>
+          <li>Refunds processed within 7–10 business days</li>
+        </ul>
+      </div>
 
-      <ul className="list-disc pl-6 mt-4 space-y-2">
-        <li>We collect basic information such as name, email, phone number, and booking details.</li>
-        <li>Your information is used only to confirm bookings and provide services.</li>
-        <li>We do not sell or share your personal information with third parties.</li>
-        <li>All payments are securely processed through Razorpay.</li>
-        <li>You may contact us anytime to request deletion of your data.</li>
-      </ul>
+      <div className="policy-card">
+        <h2>Privacy Policy</h2>
+        <ul>
+          <li>We collect basic info like name, email, phone</li>
+          <li>Used only to confirm bookings and provide services</li>
+          <li>No data sharing with third parties</li>
+          <li>Payments processed securely via Razorpay</li>
+          <li>You can request deletion of your data anytime</li>
+        </ul>
+      </div>
     </div>
   );
-}
+};
+
