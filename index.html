@@ -1,18 +1,4 @@
-[1:39 pm, 4/9/2025] mannuallinone: <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mahadev Photography</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin:0; padding:0; line-height:1.6; background:#426EA6; }
-    header { background:url('images/hero.jpg') no-repeat center/cover; height:70vh; color:white; display:flex; align-items:center; justify-content:center; flex-direction:column; text-align:center; }
-    header h1 { font-size:3rem; margin:0; }
-    header p { font-size:1.2rem; }
-    section { padding:40px 20px; max-width:1000px; margin:auto; }
-    h2 { text-align:center; margin-bottom:20px; }
-    .services, .packages { display:flex; gap:20px; justify-content:center; flex-wrap:w…
-[2:02 pm, 4/9/2025] mannuallinone: <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -153,13 +139,13 @@
       <option value="Reception">Reception</option>
       <option value="Other">Other</option>
     `;
+
     div.appendChild(input); div.appendChild(select); container.appendChild(div);
   }
 
   // Razorpay Payment
   document.getElementById("bookingForm").onsubmit = function(e){
     e.preventDefault();
-
     let packageAmount = parseFloat(document.getElementById("package").value);
     let advancePercent = parseFloat(document.getElementById("advancePercent").value);
 
@@ -171,7 +157,7 @@
     let payAmount = (packageAmount * advancePercent)/100;
 
     var options = {
-      "key": "rzp_test_RDEHwLwvl0ApRq", // <- yaha apna Razorpay TEST key
+      "key": "YOUR_RAZORPAY_KEY", // yaha apna Razorpay key id
       "amount": payAmount*100,
       "currency": "INR",
       "name": "Mahadev Photography",
