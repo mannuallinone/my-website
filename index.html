@@ -12,7 +12,7 @@
       background: #f9f9f9;
     }
     header {
-      background:<img src="images/wedding1.JPG" alt="Gallery Image">
+      background: url('images/hero.jpg') no-repeat center center/cover;
       height: 70vh;
       color: white;
       display: flex;
@@ -95,158 +95,178 @@
 </head>
 <body>
 
-<header>
-  <h1>Mahadev Photography</h1>
-  <p>Cinematic & Traditional Wedding Photography</p>
-</header>
+  <!-- Hero Section -->
+  <header>
+    <h1>Mahadev Photography</h1>
+    <p>Cinematic & Traditional Wedding Photography</p>
+  </header>
 
-<section>
-  <h2>Our Services</h2>
-  <div class="services">
-    <div class="card"><h3>Wedding Photography</h3><p>Cinematic + Traditional captures of your big day.</p></div>
-    <div class="card"><h3>Fashion Photography</h3><p>Stylish and professional fashion shoots.</p></div>
-    <div class="card"><h3>Event Photography</h3><p>Covering birthdays, parties, and special occasions.</p></div>
-  </div>
-</section>
-
-<section>
-  <h2>Gallery</h2>
-  <div class="gallery">
-    <img src="images/wedding1.JPG" alt="Gallery Image" 
-    <img src="images/wedding2.JPG" alt="Gallery Image" 
-    <img src="images/wedding3.JPG" alt="Gallery Image" 
-    <img src="images/wedding4.JPG" alt="Gallery Image"
-  </div>
-</section>
-
-<div id="lightbox" onclick="this.style.display='none'">
-  <img id="lightboxImg" src="">
-</div>
-
-<section>
-  <h2>Packages</h2>
-  <div class="packages">
-    <div class="card"><h3>Traditional Video + Photo</h3><p>₹10,000</p></div>
-    <div class="card"><h3>Traditional Video + Photo + Drone</h3><p>₹15,000</p></div>
-    <div class="card"><h3>Cinematic Package</h3><p>₹8,000</p></div>
-  </div>
-</section>
-
-<section>
-  <h2>Book Now</h2>
-  <form id="bookingForm">
-    <input type="text" id="name" placeholder="Your Name" required>
-    <input type="email" id="email" placeholder="Your Email" required>
-    <input type="tel" id="phone" placeholder="Your Phone" required>
-
-    <div id="dateContainer">
-      <div class="date-block">
-        <input type="date" name="eventDate[]" required>
-        <select name="eventFunction[]" required>
-          <option value="">-- Select Function --</option>
-          <option value="Haldi">Haldi</option>
-          <option value="Mehendi">Mehendi</option>
-          <option value="Ganesh Puja">Ganesh Puja</option>
-          <option value="Wedding">Wedding</option>
-          <option value="Reception">Reception</option>
-          <option value="Other">Other</option>
-        </select>
+  <!-- Services Section -->
+  <section>
+    <h2>Our Services</h2>
+    <div class="services">
+      <div class="card">
+        <h3>Wedding Photography</h3>
+        <p>Cinematic + Traditional captures of your big day.</p>
+      </div>
+      <div class="card">
+        <h3>Fashion Photography</h3>
+        <p>Stylish and professional fashion shoots.</p>
+      </div>
+      <div class="card">
+        <h3>Event Photography</h3>
+        <p>Covering birthdays, parties, and special occasions.</p>
       </div>
     </div>
-    <button type="button" onclick="addDateField()">+ Add More Date</button>
+  </section>
 
-    <textarea id="address" placeholder="Event Address" required></textarea>
+  <!-- Gallery Section -->
+  <section>
+    <h2>Gallery</h2>
+    <div class="gallery">
+      <img src="images/photo1.jpg" alt="Gallery Image">
+      <img src="images/photo2.jpg" alt="Gallery Image">
+      <img src="images/photo3.jpg" alt="Gallery Image">
+      <img src="images/photo4.jpg" alt="Gallery Image">
+    </div>
+  </section>
 
-    <select id="package" required>
-      <option value="">-- Select Package --</option>
-      <option value="10000">Traditional Video + Photo (₹10,000)</option>
-      <option value="15000">Traditional Video + Photo + Drone (₹15,000)</option>
-      <option value="8000">Cinematic Package (₹8,000)</option>
-    </select>
+  <!-- Lightbox -->
+  <div id="lightbox" onclick="this.style.display='none'">
+    <img id="lightboxImg" src="">
+  </div>
 
-    <select id="advancePercent" required>
-      <option value="">-- Select Advance % --</option>
-      <option value="20">20% Advance</option>
-       <option value="30">30% Advance</option>
-      <option value="50">50% Advance</option>
-      <option value="80">80% Advance</option>
-      <option value="100">100% Full Payment</option>
-    </select>
+  <!-- Packages Section -->
+  <section>
+    <h2>Packages</h2>
+    <div class="packages">
+      <div class="card">
+        <h3>Traditional Photo + Video</h3>
+        <p>₹10,000</p>
+      </div>
+      <div class="card">
+        <h3>Traditional + Drone</h3>
+        <p>₹15,000</p>
+      </div>
+      <div class="card">
+        <h3>Cinematic Package</h3>
+        <p>₹10,000</p>
+      </div>
+    </div>
+  </section>
 
-    <button type="submit">Pay Advance</button>
-  </form>
-</section>
+  <!-- Booking Section -->
+  <section>
+    <h2>Book Now</h2>
+    <form id="bookingForm">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Your Email" required>
 
-<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-<script>
-  // Lightbox
-  const galleryImages = document.querySelectorAll('.gallery img');
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightboxImg');
-  galleryImages.forEach(img => {
-    img.addEventListener('click', () => {
-      lightbox.style.display = 'flex';
-      lightboxImg.src = img.src;
+      <!-- Dates + Functions -->
+      <div id="dateContainer">
+        <div class="date-block">
+          <input type="date" name="eventDate[]" required>
+          <select name="eventFunction[]" required>
+            <option value="">-- Select Function --</option>
+            <option value="Haldi">Haldi</option>
+            <option value="Mehendi">Mehendi</option>
+            <option value="Ganesh Puja">Ganesh Puja</option>
+            <option value="Wedding">Wedding</option>
+            <option value="Reception">Reception</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+      </div>
+      <button type="button" onclick="addDateField()">+ Add More Date</button>
+
+      <!-- Address -->
+      <textarea id="address" placeholder="Event Address" required></textarea>
+
+      <!-- Package -->
+      <select id="package" required>
+        <option value="">-- Select Package --</option>
+        <option value="10000">Traditional Photo + Video (₹10,000)</option>
+        <option value="15000">Traditional + Drone (₹15,000)</option>
+        <option value="10000">Cinematic Package (₹10,000)</option>
+      </select>
+
+      <button type="submit">Pay Advance</button>
+    </form>
+  </section>
+
+  <!-- Razorpay -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script>
+    // Lightbox
+    const galleryImages = document.querySelectorAll('.gallery img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    galleryImages.forEach(img => {
+      img.addEventListener('click', () => {
+        lightbox.style.display = 'flex';
+        lightboxImg.src = img.src;
+      });
     });
-  });
 
-  // Add more dates
-  function addDateField() {
-    let container = document.getElementById("dateContainer");
-    let div = document.createElement("div");
-    div.className = "date-block";
+    // Add more dates
+    function addDateField() {
+      let container = document.getElementById("dateContainer");
+      let div = document.createElement("div");
+      div.className = "date-block";
 
-    let input = document.createElement("input");
-    input.type = "date"; input.name="eventDate[]"; input.required=true;
+      let input = document.createElement("input");
+      input.type = "date";
+      input.name = "eventDate[]";
+      input.required = true;
 
-    let select = document.createElement("select"); select.name="eventFunction[]"; select.required=true;
-    select.innerHTML = `
-      <option value="">-- Select Function --</option>
-      <option value="Haldi">Haldi</option>
-      <option value="Mehendi">Mehendi</option>
-      <option value="Ganesh Puja">Ganesh Puja</option>
-      <option value="Wedding">Wedding</option>
-      <option value="Reception">Reception</option>
-      <option value="Other">Other</option>
-    `;
+      let select = document.createElement("select");
+      select.name = "eventFunction[]";
+      select.required = true;
+      select.innerHTML = `
+        <option value="">-- Select Function --</option>
+        <option value="Haldi">Haldi</option>
+        <option value="Mehendi">Mehendi</option>
+        <option value="Ganesh Puja">Ganesh Puja</option>
+        <option value="Wedding">Wedding</option>
+        <option value="Reception">Reception</option>
+        <option value="Other">Other</option>
+      `;
 
-    div.appendChild(input); div.appendChild(select); container.appendChild(div);
-  }
-
-  // Razorpay Payment
-  document.getElementById("bookingForm").onsubmit = function(e){
-    e.preventDefault();
-    let packageAmount = parseFloat(document.getElementById("package").value);
-    let advancePercent = parseFloat(document.getElementById("advancePercent").value);
-
-    if(!packageAmount || !advancePercent){
-      alert("Please select package and advance percentage");
-      return;
+      div.appendChild(input);
+      div.appendChild(select);
+      container.appendChild(div);
     }
 
-    let payAmount = (packageAmount * advancePercent)/100;
+    // Razorpay Payment
+    document.getElementById("bookingForm").onsubmit = function(e) {
+      e.preventDefault();
 
-    var options = {
-      "key": "rzp_test_RDSihk31OASzEF", // apna Razorpay key id yaha lagana
-      "amount": payAmount*100,
-      "currency": "INR",
-      "name": "Mahadev Photography",
-      "description": `Advance Payment (${advancePercent}%)`,
-      "handler": function(response){
-        alert("Payment successful! Payment ID: " + response.razorpay_payment_id);
-      },
-      "prefill": {
-        "name": document.getElementById("name").value,
-        "email": document.getElementById("email").value,
-        "contact": document.getElementById("phone").value
-      },
-      "theme": { "color": "#3399cc" }
-    };
+      let packageAmount = document.getElementById("package").value;
+      if (!packageAmount) {
+        alert("Please select a package");
+        return;
+      }
 
-    let rzp1 = new Razorpay(options);
-    rzp1.open();
-  }
-</script>
+      let options = {
+        "key": "YOUR_RAZORPAY_KEY", // apna Razorpay key id yaha daalein
+        "amount": packageAmount * 100,
+        "currency": "INR",
+        "name": "Mahadev Photography",
+        "description": "Advance Booking Payment",
+        "handler": function (response){
+            alert("Payment successful! Payment ID: " + response.razorpay_payment_id);
+        },
+        "prefill": {
+            "name": document.getElementById("name").value,
+            "email": document.getElementById("email").value
+        },
+        "theme": { "color": "#3399cc" }
+      };
+
+      let rzp1 = new Razorpay(options);
+      rzp1.open();
+    }
+  </script>
 
 </body>
 </html>
