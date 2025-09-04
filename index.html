@@ -247,38 +247,34 @@
     }
 
     // Razorpay Payment
-  document.getElementById("bookingForm").onsubmit = function(e){
-    e.preventDefault();
-    let packageAmount = parseFloat(document.getElementById("package").value);
-    let advancePercent = parseFloat(document.getElementById("advancePercent").value);
+    document.getElementById("bookingForm").onsubmit = function(e) {
+      e.preventDefault();
 
-    if(!packageAmount || !advancePercent){
-      alert("Please select package and advance percentage");
-      return;
+      let packageAmount = document.getElementById("package").value;
+      if (!packageAmount) {
+        alert("Please select a package");
+        return;
+      }
+
+      let options = {
+        "key": "rzp_test_RDSihk31OASzEF", // apna Razorpay key id yaha daalein
+        "amount": packageAmount * 100,
+        "currency": "INR",
+        "name": "Mahadev Photography",
+        "description": "Advance Booking Payment",
+        "handler": function (response){
+            alert("Payment successful! Payment ID: " + response.razorpay_payment_id);
+        },
+        "prefill": {
+            "name": document.getElementById("name").value,
+            "email": document.getElementById("email").value
+        },
+        "theme": { "color": "#3399cc" }
+      };
+
+      let rzp1 = new Razorpay(options);
+      rzp1.open();
     }
-
-    let payAmount = (packageAmount * advancePercent)/100;
-
-    var options = {
-      "key": "rzp_test_RDSihk31OASzEF", // apna Razorpay key id yaha lagana
-      "amount": payAmount*100,
-      "currency": "INR",
-      "name": "Mahadev Photography",
-      "description": `Advance Payment (${advancePercent}%)`,
-      "handler": function(response){
-        alert("Payment successful! Payment ID: " + response.razorpay_payment_id);
-      },
-      "prefill": {
-        "name": document.getElementById("name").value,
-        "email": document.getElementById("email").value,
-        "contact": document.getElementById("phone").value
-      },
-      "theme": { "color": "#3399cc" }
-    };
-
-    let rzp1 = new Razorpay(options);
-    rzp1.open();
-  </script>
 
 </body>
 </html>
