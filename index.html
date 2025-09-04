@@ -5,252 +5,146 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mahadev Photography</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0; padding: 0;
-      line-height: 1.6;
-      background: #426EA6;
-    }
-    header {
-      background: url('images/hero.jpg') no-repeat center center/cover;
-      height: 70vh;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      text-align: center;
-    }
-    header h1 { font-size: 3rem; margin: 0; }
-    header p { font-size: 1.2rem; }
-
-    section { padding: 40px 20px; max-width: 1000px; margin: auto; }
-
-    h2 { text-align: center; margin-bottom: 20px; }
-
-    .services, .packages {
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .card {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-      width: 280px;
-      text-align: center;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 15px;
-    }
-    .gallery img {
-      width: 100%;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .gallery img:hover { transform: scale(1.05); }
-
-    /* Fullscreen image */
-    #lightbox {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.9);
-      justify-content: center;
-      align-items: center;
-    }
-    #lightbox img {
-      max-width: 90%;
-      max-height: 80%;
-      border-radius: 10px;
-    }
-
-    /* Booking Form */
-    #bookingForm {
-      max-width: 500px;
-      margin: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    }
-    input, select, textarea, button {
-      padding: 10px;
-      font-size: 16px;
-      width: 100%;
-    }
-    .date-block { display: flex; gap: 10px; }
-    button { cursor: pointer; background: #3399cc; color: white; border: none; border-radius: 5px; }
+    body { font-family: Arial, sans-serif; margin:0; padding:0; line-height:1.6; background:#426EA6; }
+    header { background:url('images/hero.jpg') no-repeat center/cover; height:70vh; color:white; display:flex; align-items:center; justify-content:center; flex-direction:column; text-align:center; }
+    header h1 { font-size:3rem; margin:0; }
+    header p { font-size:1.2rem; }
+    section { padding:40px 20px; max-width:1000px; margin:auto; }
+    h2 { text-align:center; margin-bottom:20px; }
+    .services, .packages { display:flex; gap:20px; justify-content:center; flex-wrap:wrap; }
+    .card { background:white; padding:20px; border-radius:10px; box-shadow:0 2px 6px rgba(0,0,0,0.2); width:280px; text-align:center; }
+    .gallery { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:15px; }
+    .gallery img { width:100%; border-radius:10px; cursor:pointer; transition:0.3s; }
+    .gallery img:hover { transform:scale(1.05); }
+    #lightbox { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); justify-content:center; align-items:center; }
+    #lightbox img { max-width:90%; max-height:80%; border-radius:10px; }
+    #bookingForm { max-width:500px; margin:auto; display:flex; flex-direction:column; gap:15px; background:white; padding:20px; border-radius:10px; box-shadow:0 2px 6px rgba(0,0,0,0.2); }
+    input, select, textarea, button { padding:10px; font-size:16px; width:100%; }
+    .date-block { display:flex; gap:10px; }
+    button { cursor:pointer; background:#3399cc; color:white; border:none; border-radius:5px; }
   </style>
 </head>
 <body>
 
-  <!-- Hero Section -->
-  <header>
-    <h1>Mahadev Photography</h1>
-    <p>Cinematic & Traditional Wedding Photography</p>
-  </header>
+<header>
+  <h1>Mahadev Photography</h1>
+  <p>Cinematic & Traditional Wedding Photography</p>
+</header>
 
-  <!-- Services Section -->
-  <section>
-    <h2>Our Services</h2>
-    <div class="services">
-      <div class="card">
-        <h3>Wedding Photography</h3>
-        <p>Cinematic + Traditional captures of your big day.</p>
-      </div>
-      <div class="card">
-        <h3>Fashion Photography</h3>
-        <p>Stylish and professional fashion shoots.</p>
-      </div>
-      <div class="card">
-        <h3>Event Photography</h3>
-        <p>Covering birthdays, parties, and special occasions.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Gallery Section -->
-  <section>
-    <h2>Gallery</h2>
-    <div class="gallery">
-      <img src="images/wedding1.JPG" alt="Gallery Image">
-      <img src="images/wedding2.JPG" alt="Gallery Image">
-      <img src="images/wedding3.JPG" alt="Gallery Image">
-      <img src="images/wedding4.JPG" alt="Gallery Image">
-    </div>
-  </section>
-
-  <!-- Lightbox -->
-  <div id="lightbox" onclick="this.style.display='none'">
-    <img id="lightboxImg" src="">
+<section>
+  <h2>Our Services</h2>
+  <div class="services">
+    <div class="card"><h3>Wedding Photography</h3><p>Cinematic + Traditional captures of your big day.</p></div>
+    <div class="card"><h3>Fashion Photography</h3><p>Stylish and professional fashion shoots.</p></div>
+    <div class="card"><h3>Event Photography</h3><p>Covering birthdays, parties, and special occasions.</p></div>
   </div>
+</section>
 
-  <!-- Packages Section -->
-  <section>
-    <h2>Packages</h2>
-    <div class="packages">
-      <div class="card">
-        <h3>TraditionalVideo + Photo</h3>
-        <p>₹10,000</p>
-      </div>
-      <div class="card">
-        <h3>Traditionalvideo +Photo + Drone</h3>
-        <p>₹15,000</p>
-      </div>
-      <div class="card">
-        <h3>Cinematic Package</h3>
-        <p>₹8,000</p>
+<section>
+  <h2>Gallery</h2>
+  <div class="gallery">
+    <img src="images/wedding1.JPG" alt="Gallery Image">
+    <img src="images/wedding2.JPG" alt="Gallery Image">
+    <img src="images/wedding3.JPG" alt="Gallery Image">
+    <img src="images/wedding4.JPG" alt="Gallery Image">
+  </div>
+</section>
+
+<div id="lightbox" onclick="this.style.display='none'">
+  <img id="lightboxImg" src="">
+</div>
+
+<section>
+  <h2>Packages</h2>
+  <div class="packages">
+    <div class="card"><h3>Traditional Video + Photo</h3><p>₹10,000</p></div>
+    <div class="card"><h3>Traditional Video + Photo + Drone</h3><p>₹15,000</p></div>
+    <div class="card"><h3>Cinematic Package</h3><p>₹8,000</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>Book Now</h2>
+  <form id="bookingForm">
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="email" id="email" placeholder="Your Email" required>
+    <input type="phone" id="phone" placeholder="Your Phone" required>
+
+    <div id="dateContainer">
+      <div class="date-block">
+        <input type="date" name="eventDate[]" required>
+        <select name="eventFunction[]" required>
+          <option value="">-- Select Function --</option>
+          <option value="Haldi">Haldi</option>
+          <option value="Mehendi">Mehendi</option>
+          <option value="Ganesh Puja">Ganesh Puja</option>
+          <option value="Wedding">Wedding</option>
+          <option value="Reception">Reception</option>
+          <option value="Other">Other</option>
+        </select>
       </div>
     </div>
-  </section>
+    <button type="button" onclick="addDateField()">+ Add More Date</button>
 
-  <!-- Booking Section -->
-  <section>
-    <h2>Book Now</h2>
-    <form id="bookingForm">
-      <input type="text" id="name" placeholder="Your Name" required>
-      <input type="email" id="email" placeholder="Your Email" required>
- <input type="phone" id="phone" placeholder="Your phone" required>
-      <!-- Dates + Functions -->
-      <div id="dateContainer">
-        <div class="date-block">
-          <input type="date" name="eventDate[]" required>
-          <select name="eventFunction[]" required>
-            <option value="">-- Select Function --</option>
-            <option value="Haldi">Haldi</option>
-            <option value="Mehendi">Mehendi</option>
-            <option value="Ganesh Puja">Ganesh Puja</option>
-            <option value="Wedding">Wedding</option>
-            <option value="Reception">Reception</option>
-            <option value="Other">Other</option>
-          </select>
-        </div>
-      </div>
-      <button type="button" onclick="addDateField()">+ Add More Date</button>
+    <textarea id="address" placeholder="Event Address" required></textarea>
 
-      <!-- Address -->
-      <textarea id="address" placeholder="Event Address" required></textarea>
+    <select id="package" required>
+      <option value="">-- Select Package --</option>
+      <option value="10000">Traditional Video + Photo (₹10,000)</option>
+      <option value="15000">Traditional Video + Photo + Drone (₹15,000)</option>
+      <option value="8000">Cinematic Package (₹8,000)</option>
+    </select>
 
-     <!-- Package -->
-<select id="package" required>
-  <option value="">-- Select Package --</option>
-  <option value="10000">Traditional Video + Photo (₹10,000)</option>
-  <option value="15000">Traditional Video + Photo + Drone (₹15,000)</option>
-  <option value="8000">Cinematic Package (₹8,000)</option>
-</select>
+    <select id="advancePercent" required>
+      <option value="">-- Select Advance % --</option>
+      <option value="20">20% Advance</option>
+      <option value="50">50% Advance</option>
+      <option value="80">80% Advance</option>
+      <option value="100">100% Full Payment</option>
+    </select>
 
-<!-- Advance Percentage Dropdown -->
-<select id="advancePercent" required>
-  <option value="">-- Select Advance % --</option>
-  <option value="0">0% Advance</option>
-  <option value="20">20% Advance</option>
-   <option value="30">30% Advance</option>
-   <option value="40">40% Advance</option>
-  <option value="50">50% Advance</option>
-  <option value="80">80% Advance</option>
-  <option value="100">100% Full Payment</option>
-</select>
+    <button type="submit">Pay Advance</button>
+  </form>
+</section>
 
-<button type="submit">Pay Advance</button>
-    </form>
-  </section>
-
-  <!-- Razorpay -->
-  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-  <script>
-    // Lightbox
-    const galleryImages = document.querySelectorAll('.gallery img');
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightboxImg');
-    galleryImages.forEach(img => {
-      img.addEventListener('click', () => {
-        lightbox.style.display = 'flex';
-        lightboxImg.src = img.src;
-      });
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+  // Lightbox
+  const galleryImages = document.querySelectorAll('.gallery img');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  galleryImages.forEach(img => {
+    img.addEventListener('click', () => {
+      lightbox.style.display = 'flex';
+      lightboxImg.src = img.src;
     });
+  });
 
-    // Add more dates
-    function addDateField() {
-      let container = document.getElementById("dateContainer");
-      let div = document.createElement("div");
-      div.className = "date-block";
+  // Add more dates
+  function addDateField() {
+    let container = document.getElementById("dateContainer");
+    let div = document.createElement("div");
+    div.className = "date-block";
 
-      let input = document.createElement("input");
-      input.type = "date";
-      input.name = "eventDate[]";
-      input.required = true;
+    let input = document.createElement("input");
+    input.type = "date"; input.name="eventDate[]"; input.required=true;
 
-      let select = document.createElement("select");
-      select.name = "eventFunction[]";
-      select.required = true;
-      select.innerHTML = `
-        <option value="">-- Select Function --</option>
-        <option value="Haldi">Haldi</option>
-        <option value="Mehendi">Mehendi</option>
-        <option value="Ganesh Puja">Ganesh Puja</option>
-        <option value="Wedding">Wedding</option>
-        <option value="Reception">Reception</option>
-        <option value="Other">Other</option>
-      `;
+    let select = document.createElement("select"); select.name="eventFunction[]"; select.required=true;
+    select.innerHTML = `
+      <option value="">-- Select Function --</option>
+      <option value="Haldi">Haldi</option>
+      <option value="Mehendi">Mehendi</option>
+      <option value="Ganesh Puja">Ganesh Puja</option>
+      <option value="Wedding">Wedding</option>
+      <option value="Reception">Reception</option>
+      <option value="Other">Other</option>
+    `;
 
-      div.appendChild(input);
-      div.appendChild(select);
-      container.appendChild(div);
-    }
+    div.appendChild(input); div.appendChild(select); container.appendChild(div);
+  }
 
-    // Razorpay Payment
-     document.getElementById("bookingForm").onsubmit = function(e){
+  // Razorpay Payment
+  document.getElementById("bookingForm").onsubmit = function(e){
     e.preventDefault();
     let packageAmount = parseFloat(document.getElementById("package").value);
     let advancePercent = parseFloat(document.getElementById("advancePercent").value);
@@ -282,7 +176,7 @@
     let rzp1 = new Razorpay(options);
     rzp1.open();
   }
-  </script>
+</script>
 
 </body>
 </html>
